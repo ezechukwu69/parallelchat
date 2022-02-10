@@ -14,6 +14,7 @@ class HomeCubit extends Cubit<HomeState> {
 
     listener = instance
         .collection("chats")
+        .orderBy("updatedAt", descending: true)
         .where("participants", arrayContains: {
           "email": currentUser?.email ?? "",
           "userID": currentUser?.uid ?? "",
